@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\PersonCreated;
 use App\Http\Requests\PersonRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,12 @@ class Person extends Model
     protected $guarded = ['id'];
     protected $hidden = ['created_at', 'updated_at'];
     protected $dates = ['created_at', 'updated_at'];
+
+    /* ********************* MODIFICATIONS ************************** */
+
+    protected $dispatchesEvents = [
+        'created' => PersonCreated::class
+    ];
 
     /* ********************* RELATIONS ************************** */
 

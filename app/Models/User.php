@@ -20,6 +20,7 @@ class User extends Authenticatable
         'updated_at',
         'email_verified_at',
         'api_token',
+        'slack_webhook',
     ];
 
     protected $dates = ['created_at', 'updated_at', 'email_verified_at',];
@@ -27,4 +28,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* ********************* MODIFICATIONS ************************** */
+
+    public function routeNotificationForSlack($notification)
+    {
+        return $this->slack_webhook;
+    }
 }
