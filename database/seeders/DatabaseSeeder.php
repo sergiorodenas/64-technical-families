@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory()->create([
+            'email' => 'admin@admin.test',
+            'api_token' => hash('sha256', 'XwwPzz157PkFFN1JiVLmG8GAasz4Q8xckoBRYSIIJ9KldEY6Yowfs8lmn4No')
+        ]);
 
         \App\Models\Person::factory(10)->hasAttached(Family::factory()->create())->create();
         \App\Models\Person::factory(10)->hasAttached(Family::factory()->create())->create();
