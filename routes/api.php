@@ -26,5 +26,6 @@ Route::middleware('auth:api')->group(function(){
 
     Route::post('families', [FamilyController::class, 'Create']);
 
-    Route::post('families/{family}/people/{person}', [FamilyController::class, 'AddMember']);
+    // Idempotent - https://www.mscharhag.com/api-design/rest-many-to-many-relations
+    Route::put('families/{family}/people/{person}', [FamilyController::class, 'AddMember']);
 });

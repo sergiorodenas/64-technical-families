@@ -22,7 +22,7 @@ class PersonRequest extends JsonFormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['string', 'alpha', 'max:100']
         ];
     }
 }

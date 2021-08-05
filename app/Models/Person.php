@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Http\Requests\PersonRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Person extends Model
 {
@@ -15,12 +17,17 @@ class Person extends Model
 
     /* ********************* RELATIONS ************************** */
 
-    public function families(){
+    public function families(): BelongsToMany
+    {
         return $this->belongsToMany(Family::class);
     }
 
     /* ********************* CRUD ************************** */
 
-    //CREATE
-    //UPDATE
+    public static function createFromRequest(PersonRequest $request): self
+    {
+        return self::create([
+            'name' => $request->get('name')
+        ]);
+    }
 }
