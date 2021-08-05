@@ -1,0 +1,36 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Requests\{{ model }}Request;
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Response;
+
+class {{ class }} extends Controller
+{
+    public function List(): Response
+    {
+        //
+    }
+
+    public function Get({{ model }} ${{ modelVariable }}): Response
+    {
+        //
+    }
+
+    public function Create({{ model }}Request $request): Response
+    {
+        //
+    }
+
+    public function Update({{ model }}Request $request, {{ model }} ${{ modelVariable }}): Response
+    {
+        //
+    }
+
+    public function Delete({{ model }}Request $request, {{ model }} ${{ modelVariable }}): Response
+    {
+        //
+    }
+}
