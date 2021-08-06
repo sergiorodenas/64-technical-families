@@ -33,3 +33,15 @@ For the sake of the test, you will be evaluated solely on two items:
 2. Your tests
 
 The most important part is that we should be able to quickly look at and understand how you write code and how it jives with our coding standards. 
+
+## Installation steps
+- PHP 8.0 is needed with default Laravel required PHP Extensions
+- ```composer install```
+- Create .env file from .env.example and configure .env with local database credentials
+- ```php artisan key:generate```
+- ```php artisan migrate --seed```
+
+## Running tests
+- PHP 8.0 is needed with default Laravel required PHP Extensions
+- ```composer install```
+- ```vendor/bin/phpunit```
