@@ -22,7 +22,7 @@ class FamilyRequest extends JsonFormRequest
     public function rules()
     {
         return [
-            'name' => ['string', 'alpha', 'max:100']
+            'name' => ['string', 'regex:/^[\pL\s]+$/u', 'max:100']
         ];
     }
 }

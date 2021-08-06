@@ -83,4 +83,22 @@ class FamilyControllerTest extends TestCase
 
         $this->assertEquals('Unauthenticated.', $response->message);
     }
+
+    /**
+     * Regression test [Link to bug]
+     * @test
+     * POST 'api/families'
+     */
+    public function a_user_can_create_families_with_name_with_spaces()
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user, 'api')->json('POST', '/api/families', [
+            'name' => $family = 'Rodenas Gomez'
+        ]);
+
+        $response = json_decode($response->getContent());
+
+        $this->assertEquals($family, $response->name);
+    }
 }
